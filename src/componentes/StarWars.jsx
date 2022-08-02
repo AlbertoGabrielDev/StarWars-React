@@ -8,7 +8,6 @@ import Naves from './Naves';
 
 
 const StarWars = () => {
-
   const [url, setUrl] = useState("https://swapi.dev/api/people/")
   const [urlPlaneta, setUrlPlaneta] = useState("https://swapi.dev/api/planets/")
   const [urlNave, setUrlNave] = useState("https://swapi.dev/api/starships/")
@@ -17,7 +16,7 @@ const StarWars = () => {
   const [naves, setNaves] = useState([]);
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
-
+  const [procurar, setProcurar]= useState(true);
 
   useEffect(() => {
     peoples()
@@ -38,10 +37,11 @@ const StarWars = () => {
     setPrevUrl(res.data.previous)
   }
 
-  async function peoples() {
+ const peoples = async () =>{
+    setProcurar(true)
     const res = await axios.get(url)
-
     setPeople(res.data.results)
+    setProcurar(false)
   }
 
   async function planetas() {
@@ -54,14 +54,12 @@ const StarWars = () => {
     setNaves(res.data.results)
   }
 
-
-
   return (
     <>
       <main>
         <Routes>
 
-          <Route path='/people' element={<People dados={people} />}> </Route>
+          <Route path='/people' element={<People dados={people} loading={procurar} />}> </Route>
 
           <Route path='/planets' element={<Planets dados={planet} />}></Route>
 
@@ -69,7 +67,7 @@ const StarWars = () => {
         </Routes>
 
        <div className="btn-group">
-          { <button onClick={() => {
+          {<button onClick={() => {
             setPeople([])
             setUrl(prevUrl)
           }}>Pagina Anterior</button>}

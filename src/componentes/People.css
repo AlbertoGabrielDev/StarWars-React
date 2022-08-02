@@ -1,6 +1,7 @@
 
 body{
     background-color: rgb(57, 46, 46);
+    
 }
 
 
@@ -8,15 +9,28 @@ body{
     background-color: aqua;
     border-radius: 20px;
     text-align: center;
-  
-     height: 250px;
-     width: 380px;
-     
+    height: 250px;
+    width: 380px;
+    margin: 20px;
 }
 
 .conteiner{
-    display: inline-block;
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     /* margin: 200px; */
-    padding: 80px;
+    /* padding: 80px; */
+   
+
 }
 
+.loading{
+    color: red;
+
+}
+
+.progress{
+    margin: 20px;
+}
