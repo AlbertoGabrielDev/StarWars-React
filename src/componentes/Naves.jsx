@@ -1,13 +1,17 @@
 import React from "react";
-
-function Naves({ dados }) {
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+function Naves({ dados,loading }) {
     return (
         <>
-            {
+                <section className="conteiner">
+            { loading ? <Box sx={{ width: '100%' }}>
+                     <p className="loading">Buscando Naves...</p>
+                <LinearProgress className="progress"/>
+                </Box> :
                 dados.map((naves) => {
                     return (
                         <>
-                            <section className="conteiner">
                                 <div key={1}></div>
                                 <div className="card">
                                     <p>Nome: {naves.name}</p>
@@ -15,14 +19,12 @@ function Naves({ dados }) {
                                     <p>Passageiros: {naves.passengers}</p>
                                     <p>Fabricante: {naves.manufacturer}</p>
                                 </div>
-                            </section>
                         </>
                     )
                 })
 
-
-
             }
+            </section>
         </>
 
     )

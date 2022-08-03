@@ -1,15 +1,13 @@
 
 body{
     background-color: rgb(57, 46, 46);
-    
 }
-
 
 .card{
     background-color: aqua;
     border-radius: 20px;
     text-align: center;
-    height: 250px;
+    height: 200px;
     width: 380px;
     margin: 20px;
 }
@@ -22,8 +20,6 @@ body{
     align-content: center;
     /* margin: 200px; */
     /* padding: 80px; */
-   
-
 }
 
 .loading{
@@ -33,4 +29,17 @@ body{
 
 .progress{
     margin: 20px;
+}
+
+.botao button{
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 0.3rem 0;
+    margin: 1rem;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    background-color: #b74555;
+    border-radius: 8px;
 }
